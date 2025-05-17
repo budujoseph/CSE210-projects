@@ -15,6 +15,6 @@ public class Entry
 
     public override string ToString()
     {
-        return $"{DateTime.ToShortDateString()} - {Prompt}/n{Response}";
+        return $"{Date.ToShortDateString()} - {Prompt}/n{Response}";
     }
 }
