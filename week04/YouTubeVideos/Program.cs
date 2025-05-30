@@ -33,35 +33,6 @@ class Program
             Console.WriteLine();
         }
 
-        // bool running = true;
-
-        // while (running)
-        // {
-        //     Console.WriteLine("Press 1 to add a comment or 0 to quit");
-        //     string input = Console.ReadLine();
-
-        //     if (input == "0")
-        //     {
-        //         running = false;
-        //         break;
-        //     }
-
-        //     else if (input == "1")
-        //     {
-        //         Console.WriteLine("\n Select a video to add a comment");
-        //         for (int i = 0; i < videos.Count; i++)
-        //         {
-        //             Console.WriteLine($"{i + 1}. {videos[i].Title} by {videos[i].Author}");
-        //         }
-
-        //         string videoInput = Console.ReadLine();
-        //         int videoIndex;
-
-        //         if (true)
-        //         {
-                    
-        //         }
-        //     }
-        // }
+        
     }
 }

@@ -15,6 +15,10 @@ public class Video
         CommentLength = commentLength;
     }
 
+    public void AddComment(Comment comment)
+    {
+        comments.Add(comment);
+    }
 
     public int NumberOfComments()
     {
