@@ -2,12 +2,12 @@ using System;
 
 public class Comment
 {
-    public string Name { set; get; }
-    public string CommentText { set; get; }
+    public string _name { set; get; }
+    public string _commentText { set; get; }
 
     public Comment(string name, string commentText)
     {
-        Name = name;
-        CommentText = commentText;
+        _name = name;
+        _commentText = commentText;
     }
 }
