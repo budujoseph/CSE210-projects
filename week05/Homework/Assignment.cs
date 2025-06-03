@@ -7,8 +7,18 @@ public class Assignment
 
     public Assignment(string studentName, string topic)
     {
-        this._studentName = studentName;
-        this._topic = topic;
+        _studentName = studentName;
+        _topic = topic;
+    }
+
+    public string GetStudentName()
+    {
+        return _studentName;
+    }
+
+    public string GetTopic()
+    {
+        return _topic;
     }
 
     public string GetSummary()
