@@ -4,12 +4,50 @@ class Program
 {
     static void Main(string[] args)
     {
-        Activity activity = new Activity("Breathing", "This activity will help you relax by breathing in and out slowly.");
-        activity.setDuration(5);
+        bool running = true;
 
-        activity.DisplayStartingMessage();
-        activity.ShowCountDown(5);       // Countdown from 5
-        activity.showSpinner(3);         // Show spinner for 3 seconds
-        activity.DisplayEndingMessage(); // Ending message
+        while (running)
+        {
+            Console.WriteLine("Welcome to the mindfullness program!");
+            Console.WriteLine("Please select an activity");
+            Console.WriteLine("1.   Breathing Activity");
+            Console.WriteLine("2.   Reflection Activity");
+            Console.WriteLine("3.   Listing Activity");
+            Console.WriteLine("4.   Exit");
+            Console.Write("Enter your choice(1-4): ");
+            string choice = Console.ReadLine();
+
+            Activity activity = null;
+
+            switch (choice)
+            {
+                case "1":
+                    activity = new BreathingActivity();
+                    break;
+
+                case "2":
+                    activity = new ReflectionActivity();
+                    break;
+
+                case "3":
+                    activity = new ListingActivity();
+                    break;
+                
+                case "4":
+                    running = false;
+                    Console.WriteLine("Exiting the program...");
+                    continue;
+
+                default:
+                    Console.WriteLine("Invalid choice, Please try again");
+                    continue;
+            }
+
+            if (activity != null)
+            {
+                activity.Start();
+                activity.Run();
+            }
+        }
     }
 }

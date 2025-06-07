@@ -2,9 +2,9 @@ using System;
 
 public class Activity
 {
-    private string _activityName;
-    private string _description;
-    private int _duration;
+    protected string _activityName{get; set; }
+    protected string _description{get; set; }
+    protected int _duration{get; set; }
 
     public Activity(string activityName, string description)
     {
@@ -12,44 +12,42 @@ public class Activity
         _description = description;
     }
 
-    public void setDuration(int duration) {
-        _duration = duration;
-    }
-
-    public void DisplayStartingMessage()
+    public virtual void Start()
     {
-        Console.WriteLine($"Starting {_activityName}");
+        Console.WriteLine($"Srating {_activityName}");
         Console.WriteLine(_description);
-    }
 
-    public void DisplayEndingMessage()
-    {
-       Console.WriteLine("Well done");
-       Console.WriteLine($"You have completed the {_activityName} activity for {_duration} seconds");
-    }
-
-    public void showSpinner(int seconds)
-    {
-        string[] spinner = {"|", "/", "-", "\\"};
-        DateTime endTime = DateTime.Now.AddSeconds(seconds);
-        int i = 0;
-
-        while (DateTime.Now < endTime)
+        if(this is ReflectionActivity)
         {
-            Console.Write($"\r{spinner[i % spinner.Length]}");
-            Thread.Sleep(200);
-            i++;
+            Console.Write("Enter the reflection time for each stage(in seconds): ");
+            int promptTime = int.Parse(Console.ReadLine());
+            int stages = ((ReflectionActivity)this).GeNumberOfStages();
+            _duration = promptTime * stages;
+
+            Console.WriteLine($"Total reflection time will be: {_duration} seconds");
         }
 
-        Console.Write("\r");
-        Console.WriteLine();
+        else
+        {
+            Console.Write("Enter the duration(in seconds); ");
+            _duration = int.Parse(Console.ReadLine());
+        }
+
+        Console.WriteLine("Prepare to begin...");
+        Pause(3);
     }
 
-    public void ShowCountDown(int second)
+    public virtual void Run()
     {
-        for (int i = second; i > 0; i--)
+
+    }
+
+    public void Pause(int seconds)
+    {
+        for (int i = seconds; i > 0; i--)
         {
-            Console.Write($"Starting in: {second} seconds...");
+            Console.Write($"\rStarting in: {i} seconds...");
+            System.Threading.Thread.Sleep(1000);
         }
 
         Console.WriteLine();
