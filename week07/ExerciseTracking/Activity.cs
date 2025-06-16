@@ -20,6 +20,6 @@ public class Activity
 
     public virtual string GetSummary()
     {
-        return $"{_date.ToString("dd MMM yyyy")} Activity ({_duration} min) : Distance {GetDistance(): 0.0} km, Speed {GetSpeed(): 0.0} kph, Pace: {GetPace(): 0.0} min per km";
+        return $"{_date.ToString("dd MMM yyyy")} Activity ({_duration} min) : Distance: {GetDistance(): 0.0} km, Speed: {GetSpeed(): 0.0} kph, Pace: {GetPace(): 0.0} min per km";
     }
 }
